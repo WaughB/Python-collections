@@ -4,6 +4,7 @@ A look into how the different storage types in Python can effect the performance
 ## Coding standards
 Certain standards were maintained to get this project going. 
 * Test driven development. 
-* NumPy style DocStrings
+* Sphinx style DocStrings
 * Use of a common logger
 * Pushing as much logic into functions as possible, keeping main decluttered
+* Error handling baked in from the beginning
