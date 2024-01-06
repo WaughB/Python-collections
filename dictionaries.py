@@ -47,6 +47,7 @@ def generate_sample_data(size, max_list_length):
         raise sample_data_error
 
     logger.info("Successfully generated sample data.")
+    logger.debug("Sample Data: " + str(sample_data))
     return sample_data
 
 
@@ -87,6 +88,7 @@ def convert_to_dictionary(sample_data):
         raise convert_to_dictionary_error
 
     logger.info("Successfully converted sample data to a Python dictionary.")
+    logger.debug("Python dictionary: " + str(dictionary))
     return dictionary
 
 
@@ -124,6 +126,7 @@ def convert_to_numpy_array(sample_data):
         raise convert_to_numpy_array_error
 
     logger.info("Successfully converted sample data to a NumPy array.")
+    logger.debug("Numpy array: " + str(np_array))
     return np_array
 
 
@@ -156,4 +159,5 @@ def convert_to_pandas_df(sample_data):
         raise convert_to_pandas_df_error
 
     logger.info("Successfully converted sample data to a Pandas DataFrame.")
+    logger.debug("Pandas DataFrame: " + str(df))
     return df

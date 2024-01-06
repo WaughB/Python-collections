@@ -20,15 +20,8 @@ if __name__ == "__main__":
     logger.info("Program started.")
 
     sample_data = generate_sample_data(CONST_SIZE, CONST_MAX_LIST_LENGTH)
-    logger.debug("Sample Data: " + str(sample_data))
-
     dictionary = convert_to_dictionary(sample_data)
-    logger.debug("Python dictionary: " + str(dictionary))
-
     numpy_array = convert_to_numpy_array(sample_data)
-    logger.debug("Numpy array: " + str(numpy_array))
-
     pandas_df = convert_to_pandas_df(sample_data)
-    logger.debug("Pandas DataFrame: " + str(pandas_df))
 
     logger.info("Program ended.")
