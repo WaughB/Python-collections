@@ -7,7 +7,7 @@ import logging
 import numpy as np
 import pandas as pd
 
-logger = log_this(__name__)
+logger = log_this(__name__, level=logging.WARNING)
 
 
 def generate_sample_data(size, max_list_length):
