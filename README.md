@@ -1,4 +1,15 @@
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=WaughB_Python-collections)](https://sonarcloud.io/summary/new_code?id=WaughB_Python-collections)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=WaughB_Python-collections&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=WaughB_Python-collections)
+
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=WaughB_Python-collections&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=WaughB_Python-collections)
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=WaughB_Python-collections&metric=bugs)](https://sonarcloud.io/summary/new_code?id=WaughB_Python-collections)
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=WaughB_Python-collections&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=WaughB_Python-collections)
+
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=WaughB_Python-collections&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=WaughB_Python-collections)
+
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=WaughB_Python-collections&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=WaughB_Python-collections)
+
 
 # Python-collections
 A look into how the different storage types in Python can effect the performance of the application. 
