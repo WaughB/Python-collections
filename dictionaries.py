@@ -6,6 +6,7 @@ from logger import log_this
 import logging
 import numpy as np
 import pandas as pd
+import polars as pl
 
 logger = log_this(__name__, level=logging.WARNING)
 
@@ -160,4 +161,42 @@ def convert_to_pandas_df(sample_data):
 
     logger.info("Successfully converted sample data to a Pandas DataFrame.")
     logger.debug("Pandas DataFrame: " + str(df))
+    return df
+
+
+def convert_to_polars_df(sample_data):
+    """
+    Converts sample data to a Polars DataFrame.
+
+    :param sample_data: List of tuples where each tuple represents a row in the DataFrame.
+    :return: Polars DataFrame.
+    """
+    if not isinstance(sample_data, list):
+        logger.error("Sample data must be a list.")
+        raise TypeError("sample_data must be a list.")
+
+    try:
+        logger.info("Converting sample data to a Polars DataFrame.")
+
+        if not sample_data:
+            # Return an empty DataFrame
+            return pl.DataFrame()
+
+        # Verify that all tuples have the same length
+        if len(set(len(item) for item in sample_data if isinstance(item, tuple))) != 1:
+            logger.error(
+                "All tuples in sample data must have the same length.")
+            raise ValueError(
+                "All tuples in sample_data must have the same length.")
+
+        # Convert to Polars DataFrame
+        df = pl.DataFrame(sample_data)
+
+    except Exception as convert_to_polars_df_error:
+        logger.error("Error converting sample data to a Polars DataFrame: " +
+                     str(convert_to_polars_df_error))
+        raise convert_to_polars_df_error
+
+    logger.info("Successfully converted sample data to a Polars DataFrame.")
+    logger.debug("Polars DataFrame: " + str(df))
     return df
