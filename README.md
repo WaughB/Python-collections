@@ -59,5 +59,7 @@ Features
 * Add search
 * Add graphs of performance difference
 
-ML Comparison
+Random
+* Add requirements.txt file
+* Add dockerfile
 * Which ones are accepted by ML frameworks?
