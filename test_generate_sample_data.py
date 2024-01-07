@@ -19,7 +19,7 @@ def test_sample_data_key_length():
 def test_sample_data_value_type():
     data = generate_sample_data(10, 5)
     for _, value in data:
-        assert type(value) == int
+        assert isinstance(value, int)
 
 
 def test_zero_size():
