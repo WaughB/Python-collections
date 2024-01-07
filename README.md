@@ -42,3 +42,22 @@ For larger amounts of data (100x100):
 ```
 
 As small amounts of data, the Python Dictionary is incredibly quick at being setup. As the amount of data increases, the order of performance is maintained but the difference becomes smaller. Furhter testing is needed to see if for even larger sums of data if the relationship stays the same. 
+
+## TODO
+Testing
+* testing convert_to_pandas_df
+* testing logger
+* testing speed_tests
+* testing main
+* testing convert_to_polars_df
+
+Features
+* Add polars
+* Redo other tests to include polars
+* Add addition
+* Add sort
+* Add search
+* Add graphs of performance difference
+
+ML Comparison
+* Which ones are accepted by ML frameworks?
