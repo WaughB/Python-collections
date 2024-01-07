@@ -1,0 +1,6 @@
+[run]
+branch = True
+source = .
+omit =
+    */__pycache__/*
+    */logs/*
