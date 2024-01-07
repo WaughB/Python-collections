@@ -10,6 +10,11 @@ import polars as pl
 
 logger = log_this(__name__, level=logging.WARNING)
 
+# Default error messages
+LIST_ERROR = "Sample data must be a list."
+TUPLE_ERROR = "Each item in sample data must be a tuple."
+TUPLE_LENGTH_ERROR = "Each tuple in sample data must contain exactly 2 elements."
+
 
 def generate_sample_data(size, max_list_length):
     """
@@ -59,8 +64,8 @@ def convert_to_dictionary(sample_data):
     :return: Python dictionary.
     """
     if not isinstance(sample_data, list):
-        logger.error("Sample data must be a list.")
-        raise TypeError("sample_data must be a list.")
+        logger.error(LIST_ERROR)
+        raise TypeError(LIST_ERROR)
 
     try:
         logger.info("Converting sample data to a Python dictionary.")
@@ -68,15 +73,11 @@ def convert_to_dictionary(sample_data):
 
         for item in sample_data:
             if not isinstance(item, tuple):
-                logger.error("Each item in sample data must be a tuple.")
-                raise TypeError("Each item in sample_data must be a tuple.")
+                logger.error(TUPLE_ERROR)
+                raise TypeError(TUPLE_ERROR)
             if len(item) != 2:
-                logger.error(
-                    "Each tuple in sample data must contain exactly 2 elements."
-                )
-                raise ValueError(
-                    "Each tuple in sample_data must contain exactly 2 elements."
-                )
+                logger.error(TUPLE_LENGTH_ERROR)
+                raise ValueError(TUPLE_LENGTH_ERROR)
 
             key, value = item
             if key in dictionary:
@@ -104,8 +105,8 @@ def convert_to_numpy_array(sample_data):
     :return: NumPy array.
     """
     if not isinstance(sample_data, list):
-        logger.error("Sample data must be a list.")
-        raise TypeError("sample_data must be a list.")
+        logger.error(LIST_ERROR)
+        raise TypeError(LIST_ERROR)
 
     try:
         logger.info("Converting sample data to a NumPy array.")
@@ -116,8 +117,8 @@ def convert_to_numpy_array(sample_data):
 
         # Verify that all tuples have the same length
         if len(set(len(item) for item in sample_data if isinstance(item, tuple))) != 1:
-            logger.error("All tuples in sample data must have the same length.")
-            raise ValueError("All tuples in sample_data must have the same length.")
+            logger.error(TUPLE_ERROR)
+            raise ValueError(TUPLE_ERROR)
 
         # Convert to NumPy array
         np_array = np.array(sample_data)
@@ -142,15 +143,15 @@ def convert_to_pandas_df(sample_data):
     :return: Pandas DataFrame.
     """
     if not isinstance(sample_data, list):
-        logger.error("Sample data must be a list.")
-        raise TypeError("sample_data must be a list.")
+        logger.error(LIST_ERROR)
+        raise TypeError(LIST_ERROR)
 
     try:
         logger.info("Converting sample data to a Pandas DataFrame.")
 
         if not all(isinstance(item, tuple) and len(item) == 2 for item in sample_data):
-            logger.error("Each item in sample data must be a 2-element tuple.")
-            raise ValueError("Each item in sample_data must be a 2-element tuple")
+            logger.error(TUPLE_ERROR)
+            raise ValueError(TUPLE_ERROR)
 
         # Creating DataFrame from sample_data
         df = pd.DataFrame(sample_data, columns=["Key", "Value"])
@@ -175,8 +176,8 @@ def convert_to_polars_df(sample_data):
     :return: Polars DataFrame.
     """
     if not isinstance(sample_data, list):
-        logger.error("Sample data must be a list.")
-        raise TypeError("sample_data must be a list.")
+        logger.error(LIST_ERROR)
+        raise TypeError(LIST_ERROR)
 
     try:
         logger.info("Converting sample data to a Polars DataFrame.")
@@ -187,8 +188,8 @@ def convert_to_polars_df(sample_data):
 
         # Verify that all tuples have the same length
         if len(set(len(item) for item in sample_data if isinstance(item, tuple))) != 1:
-            logger.error("All tuples in sample data must have the same length.")
-            raise ValueError("All tuples in sample_data must have the same length.")
+            logger.error(TUPLE_LENGTH_ERROR)
+            raise ValueError(TUPLE_LENGTH_ERROR)
 
         # Convert to Polars DataFrame
         df = pl.DataFrame(sample_data)
