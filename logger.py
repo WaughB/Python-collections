@@ -22,6 +22,7 @@ class log_this:
 
         # File handler to log messages in a file
         if log_file is None:
+            os.makedirs("./logs", exist_ok=True)
             log_file = f"logs/{name}_{datetime.now().strftime('%Y%m%d%H%M%S')}.log"
         file_handler = logging.FileHandler(log_file)
         file_handler.setLevel(level)
