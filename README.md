@@ -1,3 +1,5 @@
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=WaughB_Python-collections)](https://sonarcloud.io/summary/new_code?id=WaughB_Python-collections)
+
 # Python-collections
 A look into how the different storage types in Python can effect the performance of the application. 
 
