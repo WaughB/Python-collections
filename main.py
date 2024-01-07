@@ -13,8 +13,8 @@ from dictionaries import (
 )
 from speed_tests import measure_execution_time
 
-CONST_SIZE = 100
-CONST_MAX_LIST_LENGTH = 100
+CONST_SIZE = 10000
+CONST_MAX_LIST_LENGTH = 10000
 
 if __name__ == "__main__":
     # Initialize the logger. If no log file is specified, logs will just save to .

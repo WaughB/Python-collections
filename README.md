@@ -15,54 +15,80 @@ Certain standards were maintained to get this project going.
 ## How to run
 `main.py` kicks off all of the processes. It will return just a few lines of logs about the average execution time for Python dictionaries, Numpy arrays, and Pandas DataFrame. 
 
+
 ## Pytest
 Tests are made for: 
 * generate_sample_data
 * convert_to_dictionaries
 * convert_to_numpy_array
+* convert_to_pandas_df
+* convert_to_polars_df
 
 Still to do: 
-* convert_to_pandas_df
 * logger
 * speed_tests
 * main
 
 ## Results
+
+### Creation
 At small amounts of data (10x10):
 
 ```
-2024-01-06 00:11:19,594 - speed_tests - INFO - Function <function convert_to_dictionary at 0x00000255F01093A0> Average execution time (microseconds): 10
-2024-01-06 00:11:19,642 - speed_tests - INFO - Function <function convert_to_numpy_array at 0x00000255F1B1D5E0> Average execution time (microseconds): 260
-2024-01-06 00:11:20,070 - speed_tests - INFO - Function <function convert_to_pandas_df at 0x00000255F1B1D670> Average execution time (microseconds): 2238
+2024-01-07 12:31:54,685 - speed_tests - INFO - Function <function convert_to_dictionary at 0x000002A64FDCF1A0> Average execution time (microseconds):   100
+2024-01-07 12:31:54,688 - speed_tests - INFO - Function <function convert_to_numpy_array at 0x000002A65026DEE0> Average execution time (microseconds):  200
+2024-01-07 12:31:54,720 - speed_tests - INFO - Function <function convert_to_pandas_df at 0x000002A65034F420> Average execution time (microseconds):    1401
+2024-01-07 12:31:54,737 - speed_tests - INFO - Function <function convert_to_polars_df at 0x000002A65034F4C0> Average execution time (microseconds):    1000
 ```
 
-For larger amounts of data (100x100): 
+_Ranking for 10x10_
+1. Dictionary
+2. Numpy
+3. Polars
+4. Pandas
+
+For 100x100 datasets: 
 
 ```
-2024-01-06 00:11:52,508 - speed_tests - INFO - Function <function convert_to_dictionary at 0x00000140BED19430> Average execution time (microseconds): 777
-2024-01-06 00:12:13,389 - speed_tests - INFO - Function <function convert_to_numpy_array at 0x00000140C072D670> Average execution time (microseconds): 2055
-2024-01-06 00:13:05,421 - speed_tests - INFO - Function <function convert_to_pandas_df at 0x00000140C072D700> Average execution time (microseconds): 3166
+2024-01-07 12:32:23,448 - speed_tests - INFO - Function <function convert_to_dictionary at 0x000001C0050DF1A0> Average execution time (microseconds):   400
+2024-01-07 12:32:23,466 - speed_tests - INFO - Function <function convert_to_numpy_array at 0x000001C00555DEE0> Average execution time (microseconds):  1800
+2024-01-07 12:32:23,508 - speed_tests - INFO - Function <function convert_to_pandas_df at 0x000001C00563F420> Average execution time (microseconds):    2600
+2024-01-07 12:32:23,543 - speed_tests - INFO - Function <function convert_to_polars_df at 0x000001C00563F4C0> Average execution time (microseconds):    2751
 ```
 
-As small amounts of data, the Python Dictionary is incredibly quick at being setup. As the amount of data increases, the order of performance is maintained but the difference becomes smaller. Furhter testing is needed to see if for even larger sums of data if the relationship stays the same. 
+_Ranking for 100x100_
+1. Dictionary
+2. Numpy
+3. Pandas
+4. Polars
+
+For 10000x10000 datasets: 
+
+```
+2024-01-07 12:36:16,594 - speed_tests - INFO - Function <function convert_to_dictionary at 0x000001D5F0A1F1A0> Average execution time (microseconds):   165484
+2024-01-07 12:39:17,557 - speed_tests - INFO - Function <function convert_to_numpy_array at 0x000001D5F0EBDEE0> Average execution time (microseconds):  83271
+2024-01-07 12:40:41,103 - speed_tests - INFO - Function <function convert_to_pandas_df at 0x000001D5F0F9F420> Average execution time (microseconds):    339842
+2024-01-07 12:49:13,951 - speed_tests - INFO - Function <function convert_to_polars_df at 0x000001D5F0F9F4C0> Average execution time (microseconds):    275781
+```
+
+_Ranking for 10000x10000_
+1. Numpy
+2. Dictionary
+3. Polars
+4. Pandas
 
 ## TODO
 Testing
-* testing convert_to_pandas_df
 * testing logger
 * testing speed_tests
 * testing main
-* testing convert_to_polars_df
 
 Features
-* Add polars
-* Redo other tests to include polars
 * Add addition
 * Add sort
 * Add search
 * Add graphs of performance difference
 
 Random
-* Add requirements.txt file
 * Add dockerfile
 * Which ones are accepted by ML frameworks?
