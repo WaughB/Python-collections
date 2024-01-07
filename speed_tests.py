@@ -16,6 +16,8 @@ def measure_execution_time(func, repetitions=10, *args, **kwargs):
 
     average_elapsed_time = total_elapsed_time / repetitions
     average_elapsed_time_ms = int(
-        average_elapsed_time.microseconds)  # Convert to milliseconds
+        average_elapsed_time.microseconds
+    )  # Convert to milliseconds
     logger.info(
-        f"Function {func} Average execution time (microseconds): {average_elapsed_time_ms}")
+        f"Function {func} Average execution time (microseconds): {average_elapsed_time_ms}"
+    )

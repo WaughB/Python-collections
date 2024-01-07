@@ -1,21 +1,21 @@
-name: Lint Code Base
+name: Python Code Formatting with Black
 
 on: [push, pull_request]
 
 jobs:
-  build:
-    name: Lint Code Base
+  black:
     runs-on: ubuntu-latest
-
     steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
 
-      - name: Checkout Code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11'
 
-      - name: Lint Code Base
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_ALL_CODEBASE: true
-          VALIDATE_PYTHON_BLACK: true
+    - name: Install Black
+      run: pip install black
+
+    - name: Run Black Check
+      run: black --check .

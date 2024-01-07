@@ -17,7 +17,8 @@ class log_this:
         self.logger.setLevel(level)
 
         formatter = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        )
 
         # File handler to log messages in a file
         if log_file is None:
