@@ -90,5 +90,4 @@ Features
 * Add graphs of performance difference
 
 Random
-* Add dockerfile
 * Which ones are accepted by ML frameworks?
